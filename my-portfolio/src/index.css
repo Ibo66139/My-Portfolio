@@ -5,7 +5,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Tagesschrift", system-ui;
     background-color: #f9fafb;
   }
   
@@ -51,8 +51,8 @@ body, html {
   
   .nav-links button:hover {
     color: #3b82f6;
-    transition: color 0.3s;
-    font-weight: 600;
+    transform: scale(1.05);
+    
 
   }
   
@@ -228,6 +228,7 @@ body, html {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+    
 
 
   }
@@ -279,6 +280,52 @@ body, html {
     text-align: center;
     font-size: 18px;
   }
+
+  .Projectdetails-Con{
+    
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+    
+
+
+  }
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .zoom-in {
+    animation: zoomIn 0.4s ease-out forwards;
+  }
+
+  @keyframes zoomOut {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+  }
+
+  .zoom-Out{
+
+    animation: zoomOut 0.4s ease-in forwards;
+  }
+  
 
 
 
