@@ -5,7 +5,9 @@ import Projectdetails from './Projectdetails';
 
 const Portfolio = () => {
   const [currentIndex, setCurrentIndex] = useState("home");  
-  const [projectdetails, setProjectdetails] = useState(false); // Kleingeschrieben, keine Namenskollision
+  const [projectdetails, setProjectdetails] = useState(false); 
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
+
 
   
 
@@ -70,9 +72,26 @@ const Portfolio = () => {
       )}
 
       {currentIndex === "about" && <About />}
-      {currentIndex === "projekts" && <Projects onOpenDetails={() => setProjectdetails(true)} />}
 
-      {projectdetails && <Projectdetails  />} {/* Zeigt nur, wenn true */}
+      {currentIndex === "projekts" && !projectdetails && (
+      <Projects onOpenDetails={(index) => {
+        setSelectedProjectIndex(index);
+        setProjectdetails(true);
+      }} />
+    )}
+{projectdetails && selectedProjectIndex !== null && (
+  <Projectdetails
+    title={contents[selectedProjectIndex].title}
+    image={contents[selectedProjectIndex].image}
+    text={contents[selectedProjectIndex].text}
+    alt={contents[selectedProjectIndex].alt}
+    onBack={() => setProjectdetails(false)}
+    
+  />
+)}
+
+
+
 
       {/* Footer */}
       <footer className="footer">
@@ -104,13 +123,14 @@ const contents = [
   {
     title: 'Quiz-App',
     image: 'QuizApp.png',
-    text: 'Beschreibung für Projekt 1',
+    text: <><h3> Interaktive Quiz-App mit React</h3><p>Als mein erstes React-Projekt habe ich eine eigenständige Quiz-Applikation entwickelt, die auf Multiple-Choice-Fragen basiert. Nutzer können Fragen beantworten und erhalten direktes Feedback zu ihrer Auswahl. Die Fragen werden zufällig gemischt und das Quiz läuft in einer kontrollierten Abfolge ab.</p><h3>Technologien & Konzepte</h3><p>Die App nutzt useState und useEffect, um Benutzerinteraktion, dynamisches Rendering und Logik wie das Mischen der Fragen umzusetzen.</p> <h3>Projekt</h3> <div className='footer-Con'><a className="btn margin" href='https://github.com/Ibo66139/React-Quiz-App'>Quellcode</a><a className="btn margin" href='w'>Zum Projekt</a></div></>,
     alt: 'Quiz-App'
   },
   {
     title: 'My Portfolio',
     image: 'Portfolio.png',
-    text: 'Beschreibung für Projekt 2',
+    text: <><h3>Portfolio - Persönliche Website</h3> <p>Dieses Portfolio dient als persönliche Webvisitenkarte. Es zeigt meine bisherigen Projekte, vermittelt einen Überblick über meine Fähigkeiten und bietet eine direkte Möglichkeit zur Kontaktaufnahme</p><p>Die Seite wurde mit React umgesetzt und spiegelt meine aktuelle Kompetenz im Bereich moderner Frontend-Technologien wider. Besonders wichtig war mir dabei, nicht nur ein optisch sauberes Ergebnis zu erzielen, sondern auch eine klare Struktur und sinnvolle Navigation. Besucher finden eine kurze Vorstellung meiner Person, einen Einblick in meine Programmierlogik und Zugriff auf ausgewählte Projekte, die meine Fortschritte und meinen Stil zeigen.</p><p>Was das Portfolio besonders macht, ist seine Einfachheit: Es ist übersichtlich gehalten, ohne unnötige Spielereien – der Fokus liegt auf Inhalt und Klarheit. Gleichzeitig ist es aber technisch sauber umgesetzt und modular aufgebaut, was mir erlaubt, jederzeit neue Inhalte oder Features hinzuzufügen, ohne das Gesamtsystem zu stören.</p>
+    </>,
     alt: 'Bild von Projekt 2'
   },
   {
