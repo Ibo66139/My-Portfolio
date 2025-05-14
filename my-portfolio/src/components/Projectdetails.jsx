@@ -1,5 +1,5 @@
 import React from 'react';
-const Projectdetails = ({ title, image, text, alt, onBack, }) => {
+const Projectdetails = ({ title, image, text, alt, onBack, css }) => {
   return (
     <div className='Projectdetails-Con zoom-in '>
     <div className='Display-Flex flex-direction Con'>
@@ -8,9 +8,9 @@ const Projectdetails = ({ title, image, text, alt, onBack, }) => {
             <h2>{title}</h2>
         
         
-        <img src={image} alt={alt} className='img' />
+        <img src={image} alt={alt} className={css} />
        
-        <p>{text}</p>
+        <div className='Display-Flex con-p'>{text}</div>
         
     </div>
     </div>
