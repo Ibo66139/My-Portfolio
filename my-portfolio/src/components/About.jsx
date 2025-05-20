@@ -32,6 +32,10 @@ const About = () => {
         <a href="https://www.linkedin.com/in/ibrahim-kocak-786a7827b/" target="_blank" rel="noopener noreferrer"> <FaLinkedin  /></a>
        
        <a href="https://github.com/Ibo66139" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+
+       <a href="https://tryhackme.com/p/ibo66kocak" target="_blank" rel="noopener noreferrer"><img src="tryhackme.png" alt="tryhackme"  className="logo-TryToHackMe"/></a>
+
+
         
         
         

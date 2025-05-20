@@ -277,6 +277,12 @@ flex-direction: column;
 
   }
 
+  .logo-TryToHackMe{
+    width: 28px; 
+    height:28px ;
+    color: blue;
+  }
+
 
   .Abou-P{
     background-color: #f3f4f6;
