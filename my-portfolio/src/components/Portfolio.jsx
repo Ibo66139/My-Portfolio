@@ -18,16 +18,19 @@ const Portfolio = () => {
   return (
     <div className="app">
       {/* Header */}
-      <header className="header">
-        <div className="logo">Ibrahim Kocak</div>
-        <nav>
-          <ul className="nav-links">
-            <li><button onClick={() => setCurrentIndex("home")}><b>Home</b></button></li>
-            <li><button onClick={() => setCurrentIndex("projekts")}><b>Projekts</b></button></li>
-            <li><button onClick={() => setCurrentIndex("about")}><b>Über mich</b></button></li>
-          </ul>
-        </nav>
-      </header>
+    {!projectdetails && (
+  <header className="header">
+    <div className="logo">Ibrahim Kocak</div>
+    <nav>
+      <ul className="nav-links">
+        <li><button onClick={() => setCurrentIndex("home")}><b>Home</b></button></li>
+        <li><button onClick={() => setCurrentIndex("projekts")}><b>Projekte</b></button></li>
+        <li><button onClick={() => setCurrentIndex("about")}><b>Über mich</b></button></li>
+      </ul>
+    </nav>
+  </header>
+)}
+
 
       {currentIndex === "home" && (
         <div className='home'>
